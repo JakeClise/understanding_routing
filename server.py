@@ -10,29 +10,17 @@ def hello_world():
 def dojo():
     return "Dojo!"
 
-@app.route('/say/flask')
-def say_flask():
-    return "Hi Flask!"
+@app.route('/say/<name>')
+def say_name(name):
+    return f"Hello {name.capitalize()}"
 
-@app.route('/say/michael')
-def say_michael():
-    return "Hi Michael!"
+@app.route('/repeat/<int:num>/<string:word>')
+def repeat_word(num, word):
+    output = ''
+    for i in range(0, num):
+        output += f"<h4>{word}<h4>"
+    return output
 
-@app.route('/say/john')
-def say_john():
-    return "Hi John!"
-
-@app.route('/repeat/35/hello')
-def repeat_hello():
-    return "hello " * 35
-
-@app.route('/bye/80')
-def repeat_bye():
-    return "bye " * 80
-@app.route('/dog/99')
-def repeat_dog():
-    return "dog " * 99
-    
 
 
 
